@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from django.contrib.auth.models import User,auth
 from django.contrib import messages
-from . models import emp
+from .models import emp
 
 
 # Create your views here.
@@ -10,7 +10,10 @@ def logout(request):
     auth.logout(request)
     return redirect('/')
 
-
+def vidb(request):
+    data = emp.objects.all()
+    return render(request,"vdb.html",{'data':data})
+    
 
 def login(request):
     if request.method=='POST':
@@ -57,8 +60,4 @@ def singup(request):
     else:
         return render(request,'sing.html')
 
-def viewdatabase(request):
-    alldb= emp.objects.all()
-    context={'alldb':alldb}
-    return render(request,'viewdb.html',context)
 

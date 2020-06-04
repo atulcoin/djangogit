@@ -24,5 +24,3 @@ def add(request):
   if reloadmodel.predict(nwdf) == 1:
        return render(request,'result2.html', {'result3':res2,'link':'http://127.0.0.1:8000'})
 
-def updatedata(request):
-    return None

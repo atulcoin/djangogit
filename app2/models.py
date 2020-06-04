@@ -6,3 +6,5 @@ class emp(models.Model):
     address=models.CharField(max_length=50)
     salary=models.IntegerField()
     status=models.BooleanField()
+    class Meta:
+        db_table = "Emp"
