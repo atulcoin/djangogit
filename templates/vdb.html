@@ -16,6 +16,7 @@
     <div id="OneDiv">
         <table>
             <thead>
+                <th>ID</th>
                 <th>name</th>
                 <th>address</th>
                 <th>salary</th>
@@ -24,13 +25,14 @@
             </thead>
             {% for d in data %}
                 <tr>
+                    <td>{{d.id}}</td>
                     <td>{{d.Name}}</td>
                     <td>{{d.address}}</td>
                     <td>{{d.salary}}</td>
                     <td>{{d.status}}</td>
                     <td>
-                        <a href="/edit?id={{d.ID}}">Edit</a>
-                        <a href="/delete?id={{d.ID}}">Delete</a>
+                        <a href="/edit?id={{d.id}}">editit</a>
+                        <a href="delete?id={{d.id}}">deletee</a><br>
                     </td>
                 </tr>
             {% endfor %}

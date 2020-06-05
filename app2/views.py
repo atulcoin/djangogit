@@ -61,3 +61,20 @@ def singup(request):
         return render(request,'sing.html')
 
 
+def form1(request):
+    if request.method == 'POST':
+        n1 = request.POST['n1']
+        data1 = request.POST['a1']
+        s1 = request.POST['s1']
+        status=True
+        emp(Name=n1,address=data1,salary=s1,status=status).save()
+        msg="Data Stored Successfully"
+        return render(request,"form1.html",{'msg':msg})
+    return render(request,'form1.html')
+
+def delete(request):
+    nisha = request.GET['id']
+    emp.objects.filter(id=nisha).delete()
+    return redirect('vidb')
+
+

@@ -3,7 +3,9 @@
 
 {% block content %}
 
-<h1>Hello <br>{{name}} !!!</h1>
+{% if user.is_authenticated %}
+
+<h1>Hello {{user.first_name}}<br>{{name}} !!!</h1>
 
 <form action="add" method="POST">
     {% csrf_token %}
@@ -11,17 +13,21 @@
     plz enter passenge age: <input type="text" name='num2'><br>
     plz enter passenge sex 0 for female & 1 for male: <input type="text" name='num3'><br>
 
-    <input type="submit"><br>
+    <input type="submit" value="<< Enter >>"><br>
 
-    <a href="{{link}}">Go to atulcoin GitHub</a>
+    <a href="{{link}}">Go to atulcoin GitHub</a><br>
+    
+    <a href="app2/logout">logout</a><br><br>
+    
+    
+    <a href="app2/vidb">viewdatabase0</a><br>
 
 
-    {% if user.is_authenticated %}
-    <li>Hello, {{user.first_name}}</li>
-    <a href="app2/logout">logout</a><br>
+    <a href="app2/form1">faram1</a><br>
     {% else %}
+    <h1> Plz login or singup to view cancer prediction </h1>
     <a href="app2/singup">singupnisha</a><br>
     <a href="app2/login">loginnish</a><br>
-    <a href="app2/vidb">viewdatabase0</a>
+
     {% endif %}
 {% endblock %}
