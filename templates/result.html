@@ -2,7 +2,22 @@
 
 {% block content %}
 
+{{for_save}}
+
 addition.....{{result}}<br>
+
+<form action="add" method="POST">
+    {% csrf_token %}
+    plz name: <input type="text" name='n1'><br>
+    plz salary: <input type="text" name='s1'><br>
+    plz adress: <input type="text" name='a1'><br>
+    plz enter passenger class: <input type="text" name='num1'><br>
+    plz enter passenge age: <input type="text" name='num2'><br>
+    plz enter passenge sex 0 for female & 1 for male: <input type="text" name='num3'><br>
+    
+    <input type="submit" value="<< Enter >>"><br>
+
+    <a href="{{link}}">Go to atulcoin GitHub</a><br>
 
 <a href="/">Home</a>
 

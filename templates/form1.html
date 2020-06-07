@@ -4,11 +4,12 @@
 
 <h1>Hello faram <br>{{name}} !!!</h1>
 
+{{msg}}
+
 <form action="form1" method="POST">
     {% csrf_token %}
-    Name: <input type="text" name='n1'><br>
-    adddress: <input type="text" name='a1'><br>
-    sallary: <input type="text" name='s1'><br>
+
+    {{ form.as_p }}
 
     <input type="submit"><br>
 

@@ -60,17 +60,18 @@ def singup(request):
     else:
         return render(request,'sing.html')
 
-
+from .forms import inputdata
 def form1(request):
+    con = inputdata()
     if request.method == 'POST':
-        n1 = request.POST['n1']
+        n98 = request.POST['n1']
         data1 = request.POST['a1']
-        s1 = request.POST['s1']
+        s981 = request.POST['s1']
         status=True
-        emp(Name=n1,address=data1,salary=s1,status=status).save()
+        emp(Name=n98,address=data1,salary=s981,status=status).save()
         msg="Data Stored Successfully"
-        return render(request,"form1.html",{'msg':msg})
-    return render(request,'form1.html')
+        return render(request,"form1.html",{'msg':msg,'form':con})
+    return render(request,'form1.html',{'form':con})
 
 def delete(request):
     nisha = request.GET['id']
