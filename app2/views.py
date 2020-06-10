@@ -62,15 +62,19 @@ def singup(request):
 
 from .forms import inputdata
 def form1(request):
-    con = inputdata()
+    con = inputdata(request.POST or None)
+    savedata=request.session.get('newformdata')
+    print(savedata)
     if request.method == 'POST':
-        n98 = request.POST['n1']
-        data1 = request.POST['a1']
-        s981 = request.POST['s1']
-        status=True
-        emp(Name=n98,address=data1,salary=s981,status=status).save()
-        msg="Data Stored Successfully"
-        return render(request,"form1.html",{'msg':msg,'form':con})
+        
+        if con.is_valid():
+            n98 = con.cleaned_data['first_name']
+            data1 = con.cleaned_data['addresss']
+            s981 = con.cleaned_data['salary']
+            status=con.cleaned_data['status']
+            emp(Name=n98,address=data1,salary=s981,status=status).save()
+            msg="Data Stored Successfully"
+            return render(request,"form1.html",{'msg':msg,'form':con})
     return render(request,'form1.html',{'form':con})
 
 def delete(request):

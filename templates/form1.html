@@ -2,9 +2,10 @@
 
 {% block content %}
 
-<h1>Hello faram <br>{{name}} !!!</h1>
+<h1>Hello faram <br>{{user.first_name}} !!!</h1>
 
 {{msg}}
+
 
 <form action="form1" method="POST">
     {% csrf_token %}
@@ -18,12 +19,14 @@
 
     {% if user.is_authenticated %}
     <li>Hello, {{user.first_name}}</li>
-    <a href="app2/logout">logout</a><br>
+    <a href="logout">logout</a><br>
+    <a href="vidb">viewdatabase0</a><br>
+    <a href="/">home</a><br>
     {% else %}
     <a href="app2/singup">singupnisha</a><br>
     <a href="app2/login">loginnish</a><br>
-    <a href="app2/vidb">viewdatabase0</a>
-    <a href="app2/form1">faram1</a><br>
+    
+    
 
     {% endif %}
 {% endblock %}
